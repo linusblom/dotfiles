@@ -113,5 +113,6 @@ zplug load
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
-alias zshconfig=“code ~/.zshrc”
-alias brewfix=“brew update && brew upgrade && brew cleanup && brew doctor”
+alias zshconfig="code ~/.zshrc"
+alias brewfix="brew update && brew upgrade && brew cleanup && brew doctor"
+
