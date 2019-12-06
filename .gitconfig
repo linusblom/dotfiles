@@ -1,0 +1,13 @@
+[alias]
+	ga = number add
+	n = number
+	s = number --column
+	co = checkout
+	cob = checkout -b
+	cod = checkout develop
+	glog = log --oneline --decorate
+	yolo = push -f
+	caan = commit -a --amend --no-edit
+	caa = commit -a --amend
+	ca = commit --amend
+	g- = checkout -
