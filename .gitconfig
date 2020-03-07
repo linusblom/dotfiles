@@ -1,3 +1,6 @@
+[user]
+	name = Linus Blom
+	email = linus.blom@me.com
 [alias]
 	ga = number add
 	n = number
@@ -10,4 +13,7 @@
 	caan = commit -a --amend --no-edit
 	caa = commit -a --amend
 	ca = commit --amend
+	can = commit --amend --noedit
 	g- = checkout -
+[sequence]
+	editor = rebase-editor
