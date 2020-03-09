@@ -1,0 +1,52 @@
+{
+  "workbench.statusBar.feedback.visible": false,
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Material Theme Palenight High Contrast",
+  "editor.tabSize": 2,
+  "window.zoomLevel": 0,
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontLigatures": true,
+  "explorer.confirmDragAndDrop": false,
+  "javascript.preferences.quoteStyle": "single",
+  "gitlens.advanced.messages": {
+    "suppressShowKeyBindingsNotice": true
+  },
+  "editor.hover.delay": 500,
+  "editor.minimap.renderCharacters": false,
+  "gitlens.showWhatsNewAfterUpgrades": false,
+  "workbench.startupEditor": "newUntitledFile",
+  "typescript.updateImportsOnFileMove.enabled": "never",
+  "breadcrumbs.enabled": true,
+  "editor.suggest.localityBonus": true,
+  "editor.wordWrap": "off",
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.editor.limit.enabled": true,
+  "workbench.editor.limit.value": 4,
+  "javascript.updateImportsOnFileMove.enabled": "never",
+  "eslint.validate": ["javascript", "javascriptreact", "html", "vue"],
+  "[typescript]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "cSpell.userWords": [
+    "envs",
+    "highcharts",
+    "ngrx",
+    "upsert",
+  ],
+  "gitlens.codeLens.enabled": false,
+  "workbench.colorCustomizations": {},
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "terminal.integrated.fontFamily": "ShureTechMono Nerd Font Mono",
+  "terminal.integrated.fontWeightBold": "normal",
+  "terminal.integrated.fontSize": 13,
+  "terminal.external.osxExec": "iTerm.app",
+  "go.formatTool": "goimports",
+  "go.useLanguageServer": true,
+}
