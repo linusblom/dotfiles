@@ -10,7 +10,8 @@ zplug "plugins/git", from:oh-my-zsh, if:"(( $+commands[git] ))"
 zplug "hlissner/zsh-autopair", defer:2
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-history-substring-search", defer:3
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-history-substring-search", defer:2
 
 if ! zplug check; then
     printf "Install plugins? [y/N]: "
@@ -31,6 +32,44 @@ if zplug check "zsh-users/zsh-history-substring-search"; then
 	bindkey "$terminfo[kcud1]" history-substring-search-down
 	bindkey "^[[1;5A" history-substring-search-up
 	bindkey "^[[1;5B" history-substring-search-down
+fi
+
+if zplug check "zsh-users/zsh-autosuggestions"; then
+    pasteinit() {
+        OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
+        zle -N self-insert url-quote-magic
+    }
+
+    pastefinish() {
+        zle -N self-insert $OLD_SELF_INSERT
+    }
+    zstyle :bracketed-paste-magic paste-init pasteinit
+    zstyle :bracketed-paste-magic paste-finish pastefinish
+
+    ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
+fi
+
+if zplug check "zsh-users/zsh-syntax-highlighting"; then
+	ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor line)	
+	ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red')	
+
+	typeset -A ZSH_HIGHLIGHT_STYLES	
+	ZSH_HIGHLIGHT_STYLES[cursor]='bg=yellow'	
+	ZSH_HIGHLIGHT_STYLES[globbing]='none'	
+	ZSH_HIGHLIGHT_STYLES[path]='fg=white'	
+	ZSH_HIGHLIGHT_STYLES[path_pathseparator]='fg=grey'	
+	ZSH_HIGHLIGHT_STYLES[alias]='fg=cyan'	
+	ZSH_HIGHLIGHT_STYLES[builtin]='fg=cyan'	
+	ZSH_HIGHLIGHT_STYLES[function]='fg=cyan'	
+	ZSH_HIGHLIGHT_STYLES[command]='fg=green'	
+	ZSH_HIGHLIGHT_STYLES[precommand]='fg=green'	
+	ZSH_HIGHLIGHT_STYLES[hashed-command]='fg=green'	
+	ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=yellow'	
+	ZSH_HIGHLIGHT_STYLES[redirection]='fg=magenta'	
+	ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg=cyan,bold'	
+	ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=green,bold'	
+	ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg=magenta,bold'	
+	ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=yellow,bold'	
 fi
 
 if zplug check "bhilburn/powerlevel9k"; then
@@ -88,6 +127,7 @@ zplug load
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
+export PATH=~/Library/Python/3.7/bin:$PATH
+
 alias zshconfig="code ~/.zshrc"
 alias brewfix="brew update && brew upgrade && brew cleanup && brew doctor"
-
