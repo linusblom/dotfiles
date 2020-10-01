@@ -45,8 +45,6 @@ if zplug check "zsh-users/zsh-autosuggestions"; then
     }
     zstyle :bracketed-paste-magic paste-init pasteinit
     zstyle :bracketed-paste-magic paste-finish pastefinish
-
-    ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
 fi
 
 if zplug check "zsh-users/zsh-syntax-highlighting"; then
