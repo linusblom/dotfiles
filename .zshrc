@@ -9,7 +9,7 @@ zplug "seebi/dircolors-solarized", ignore:"*", as:plugin
 zplug "plugins/git", from:oh-my-zsh, if:"(( $+commands[git] ))"
 zplug "hlissner/zsh-autopair", defer:2
 zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-autosuggestions", defer:2
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-history-substring-search", defer:2
 
@@ -45,6 +45,8 @@ if zplug check "zsh-users/zsh-autosuggestions"; then
     }
     zstyle :bracketed-paste-magic paste-init pasteinit
     zstyle :bracketed-paste-magic paste-finish pastefinish
+
+    ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste accept-line)
 fi
 
 if zplug check "zsh-users/zsh-syntax-highlighting"; then
